@@ -1,37 +1,29 @@
 :root {
-    /* BACKGROUND */
+ 
     --color-bg: #F0F3F0;
 
-    /* SURFACE */
     --color-surface: #E6ECE7;
     --color-white: #FFFFFF;
 
-    /* PRIMARY */
     --color-primary: #16302B;
     --color-primary-light: #2F6F62;
     --color-primary-dark: #1F4D42;
 
-    /* ACCENT */
     --color-accent: #E7A94C;
 
-    /* TEXT */
     --color-text: #24312D;
     --color-text-secondary: #52625C;
 
-    /* BORDER */
     --color-border: #C9D3CC;
 
-    /* STATUS */
     --color-success: #2E7D5B;
     --color-warning: #D99A2B;
     --color-danger: #E4572E;
     --color-info: #3B82A0;
 
-    /* TYPOGRAPHY */
     --font-primary: 'Inter', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
 
-    /* SPACING */
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 12px;
@@ -43,21 +35,21 @@
     --space-9: 80px;
     --space-10: 96px;
 
-    /* RADIUS */
     --radius-sm: 6px;
     --radius-md: 10px;
     --radius-lg: 16px;
     --radius-xl: 24px;
     --radius-full: 999px;
 
-    /* SHADOWS */
     --shadow-sm: 0 1px 2px rgba(22, 48, 43, 0.05);
     --shadow-md: 0 4px 12px rgba(22, 48, 43, 0.08);
     --shadow-lg: 0 12px 32px rgba(22, 48, 43, 0.12);
 
-    /* LAYOUT */
+    --transition-fast: 0.2s ease;
+
     --container-max-width: 1200px;
 }
+
 *,
 *::before,
 *::after {
@@ -81,48 +73,287 @@ img {
     height: auto;
 }
 
+
+/* =========================
+   NAVBAR
+========================= */
+
 .smart-navbar {
     background-color: var(--color-primary);
 }
 
+.smart-navbar .navbar-brand {
+    color: var(--color-white);
+}
+
+.smart-navbar .nameLogo {
+    color: var(--color-danger);
+}
+
 .smart-navbar .nav-link {
     color: var(--color-white);
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
 }
 
 .smart-navbar .nav-link:hover {
-    color: var(--color-accent);
+    color: var(--color-danger);
 }
 
 .smart-navbar .nav-link.active {
-    color: var(--color-accent);
+    color: var(--color-danger);
 }
 
+/* Navbar*/
 .smart-btn-login {
     color: var(--color-primary);
-    border-radius: var(--radius-md);
-    padding: var(--space-3) var(--space-5);
     background-color: var(--color-white);
     border: 1px solid var(--color-white);
-    transition: all 0.2s ease;
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-5);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast);
 }
 
 .smart-btn-login:hover {
-    color: var(--color-primary);
-    background-color: var(--color-surface);
+    color: var(--color-white);
+    background-color: var(--color-danger);
+    border-color: var(--color-danger);
 }
 
 .smart-btn-primary {
     color: var(--color-white);
-    background-color: var(--color-accent);
-    border: 1px solid var(--color-accent);
-    padding: var(--space-3) var(--space-5);
+    background-color: var(--color-danger);
+    border: 1px solid var(--color-danger);
     border-radius: var(--radius-md);
-    transition: all 0.2s ease;
+    padding: var(--space-3) var(--space-5);
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast);
 }
 
 .smart-btn-primary:hover {
+    color: var(--color-danger);
+    background-color: var(--color-white);
+    border-color: var(--color-danger);
+}
+
+/*HERO */
+.smart-hero {
+    min-height: auto;
+    padding: var(--space-7) 0;
+}
+
+/* HERO — TYPOGRAPHY */
+
+.smart-hero .eyebrow {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-primary-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-3);
+}
+
+.smart-hero h1 {
+    font-family: var(--font-primary);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-4);
+}
+
+.smart-hero h1 em {
+    color: var(--color-danger);
+    font-style: italic;
+    font-weight: 700;
+}
+
+.smart-hero .lead-copy {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin: 0 0 var(--space-4);
+}
+
+.smart-hero .microtrust {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: var(--space-4);
+    margin-bottom: 0;
+}
+
+
+/* HERO — CTA */
+
+.smart-hero .cta-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-5);
+}
+
+.smart-hero .btn-primary-cta {
+    background-color: var(--color-danger);
     color: var(--color-white);
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
+    border: 1px solid var(--color-danger);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-5);
+    font-weight: 500;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.smart-hero .btn-primary-cta:hover {
+    background-color: var(--color-white);
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+.smart-hero .btn-secondary-cta {
+    background-color: var(--color-white);
+    color: var(--color-primary-dark);
+    border: 1px solid var(--color-primary-dark);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-5);
+    font-weight: 500;
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.smart-hero .btn-secondary-cta:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    border-color: var(--color-primary-dark);
+}
+
+
+/* HERO — DIAL */
+
+.dial-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 0.72;
+}
+
+.dial-caption {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    margin-top: var(--space-3);
+    letter-spacing: 0.02em;
+}
+
+
+/* HERO — FLOATING CARDS */
+
+.float-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    padding: var(--space-2) var(--space-3);
+
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-primary);
+
+    box-shadow: var(--shadow-md);
+}
+
+.float-card .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-full);
+}
+
+.fc-1 {
+    top: 2%;
+    left: 0%;
+}
+
+.fc-1 .dot {
+    background: var(--color-primary-light);
+}
+
+.fc-2 {
+    top: 12%;
+    right: 0%;
+}
+
+.fc-2 .dot {
+    background: var(--color-accent);
+}
+
+.fc-3 {
+    bottom: 4%;
+    left: 8%;
+}
+
+.fc-3 .dot {
+    background: var(--color-danger);
+}
+
+
+/* RESPONSIVE — MOBILE */
+
+@media (max-width: 767px) {
+
+    .smart-hero {
+        min-height: auto;
+        padding: var(--space-7) 0;
+    }
+
+    .smart-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .dial-wrap {
+        max-width: 420px;
+    }
+}
+
+
+/* RESPONSIVE — DESKTOP */
+
+@media (min-width: 768px) {
+
+    .smart-hero {
+        min-height: calc(100vh - 72px);
+        padding: var(--space-9) 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .smart-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .dial-wrap {
+        max-width: 480px;
+    }
 }
